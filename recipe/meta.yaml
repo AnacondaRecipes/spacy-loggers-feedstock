@@ -17,8 +17,10 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
+    - setuptools
+    - wheel
   run:
     - python >=3.6
     - wasabi >=0.8.1,<1.1.0

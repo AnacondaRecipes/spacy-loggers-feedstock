@@ -17,8 +17,10 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
+    - setuptools
+    - wheel
   run:
     - python >=3.6
     - wasabi >=0.8.1,<1.1.0
@@ -26,11 +28,11 @@ requirements:
 test:
   imports:
     - {{ modulename }}
-  requires:
-    - pytest
-    - spacy >=3.1
-  commands:
-    - python -m pytest --tb=native --pyargs {{ modulename }}
+  # requires:
+  #  - pytest
+  #  - spacy >=3.1
+  # commands:
+  #  - python -m pytest --tb=native --pyargs {{ modulename }}
 
 
 about:

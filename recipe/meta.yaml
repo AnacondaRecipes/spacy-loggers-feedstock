@@ -1,6 +1,6 @@
 {% set name = "spacy-loggers" %}
 {% set modulename = "spacy_loggers" %}
-{% set version = "1.0.1" %}
+{% set version = "1.0.4" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +8,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 17d0e249b2e6c6546c49fc6561a0a685f91a8edbf24a5b2b7759ead443c74654
+  sha256: e6f983bf71230091d5bb7b11bf64bd54415eca839108d5f83d9155d0ba93bf28
 
 build:
-  noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  skip: true  # [py<36]
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
   host:
@@ -22,14 +22,13 @@ requirements:
     - setuptools
     - wheel
   run:
-    - python >=3.6
-    - wasabi >=0.8.1,<1.1.0
+    - python
 
 test:
   imports:
     - {{ modulename }}
   # requires:
-  #  - pytest
+  #  - pytest >=5.0.1
   #  - spacy >=3.1
   # commands:
   #  - python -m pytest --tb=native --pyargs {{ modulename }}

@@ -1,5 +1,4 @@
 {% set name = "spacy-loggers" %}
-{% set modulename = "spacy_loggers" %}
 {% set version = "1.0.5" %}
 
 package:
@@ -20,17 +19,22 @@ requirements:
     - python
     - pip
     - setuptools
+    - wheel
   run:
     - python
 
 test:
+  # source_files:
+  #   - spacy_loggers/tests
   imports:
-    - {{ modulename }}
-  # requires:
-  #  - pytest >=5.0.1
-  #  - spacy >=3.1
-  # commands:
-  #  - python -m pytest --tb=native --pyargs {{ modulename }}
+    - spacy_loggers
+    - spacy_loggers.cupy
+    - spacy_loggers.util
+  requires:
+    - pytest >=5.0.1
+    - spacy >=3.1
+  commands:
+    - pytest --pyargs spacy_loggers.tests
 
 about:
   home: https://github.com/explosion/spacy-loggers

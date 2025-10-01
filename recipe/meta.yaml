@@ -24,15 +24,13 @@ requirements:
     - python
 
 test:
-  # source_files:
-  #   - spacy_loggers/tests
   imports:
     - spacy_loggers
     - spacy_loggers.cupy
     - spacy_loggers.util
   requires:
-    - pytest >=5.0.1
-    - spacy >=3.1
+    - pytest
+    - spacy
   commands:
     - pytest --pyargs spacy_loggers.tests
 

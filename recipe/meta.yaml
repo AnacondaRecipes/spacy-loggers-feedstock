@@ -16,8 +16,8 @@ build:
 
 requirements:
   host:
-    - python
     - pip
+    - python
     - setuptools
     - wheel
   run:
@@ -29,9 +29,11 @@ test:
     - spacy_loggers.cupy
     - spacy_loggers.util
   requires:
+    - pip
     - pytest
     - spacy
   commands:
+    - pip check
     - pytest --pyargs spacy_loggers.tests
 
 about:
